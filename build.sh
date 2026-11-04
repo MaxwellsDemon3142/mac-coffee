@@ -5,7 +5,8 @@ cd "$(dirname "$0")"
 
 APP=MacCoffee.app
 rm -rf "$APP"
-mkdir -p "$APP/Contents/MacOS"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
+cp AppIcon.icns "$APP/Contents/Resources/"
 
 # Pin a minimum macOS so the app runs on this Mac even when the SDK is newer.
 swiftc -O -target "$(uname -m)-apple-macos13.0" main.swift -o "$APP/Contents/MacOS/MacCoffee"
@@ -16,6 +17,7 @@ cat > "$APP/Contents/Info.plist" <<'EOF'
 <plist version="1.0">
 <dict>
 	<key>CFBundleExecutable</key><string>MacCoffee</string>
+	<key>CFBundleIconFile</key><string>AppIcon</string>
 	<key>CFBundleIdentifier</key><string>local.maccoffee</string>
 	<key>CFBundleName</key><string>MacCoffee</string>
 	<key>CFBundlePackageType</key><string>APPL</string>

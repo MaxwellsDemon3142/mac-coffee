@@ -17,6 +17,8 @@ Needs Xcode or the Xcode Command Line Tools.
 open /Applications/MacCoffee.app
 ```
 
+The app icon is `AppIcon.icns`, drawn by [make-icon.swift](make-icon.swift). To redraw it, run `swift make-icon.swift`.
+
 To start it at login: System Settings → General → Login Items → add MacCoffee.
 
 ## Check it's working
